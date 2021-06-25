@@ -1,12 +1,12 @@
 import React from "react";
 
-const AddMovie = ({ name, onChange, onSubmit }) => {
+const AddMovie = ({ movie, onChange, onSubmit }) => {
     return (
-        <div>
-            <input placeholder="Add Movie" type="text" value={name} onChange={onChange}/>
-            <button onClick={onSubmit}>Add</button>
-        </div>
-    )
+        <form onSubmit={onSubmit}>
+            <input placeholder="Add Movie" type="text" value={movie} onChange={onChange}/>
+            <button type="button" onClick={onSubmit}>Add</button>
+        </form>
+    );
 }
 
 export default AddMovie;
