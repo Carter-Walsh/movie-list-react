@@ -35,8 +35,6 @@ const Form = () => {
     const handleDelete = (movieName) => {
         const items = list.filter(item => item.name !== movieName && item.name !== null);
         setList(items);
-
-        console.log("Item has been deleted");
     };
 
     return (
