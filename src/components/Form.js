@@ -21,16 +21,23 @@ const Form = () => {
     const [list, setList] = useState(initialList);
     const [movie, setMovie] = useState("");
 
-    function handleChange(event) {
+    const handleChange = (event) => {
         setMovie(event.target.value)
     }
 
-    function handleSubmit(event) {
+    const handleSubmit = (event) => {
         event.preventDefault();
         const newList = list.concat({ name: movie, id: uuid() });
         setList(newList);
         setMovie("");
     }
+
+    const handleDelete = (movieName) => {
+        const items = list.filter(item => item.name !== movieName && item.name !== null);
+        setList(items);
+
+        console.log("Item has been deleted");
+    };
 
     return (
         <main>
@@ -40,7 +47,10 @@ const Form = () => {
                     onChange={handleChange}
                     onSubmit={handleSubmit}
                 />
-                <MovieList list={list}/>
+                <MovieList 
+                    list={list}
+                    onDelete={handleDelete}
+                />
             
         </main>
         )
