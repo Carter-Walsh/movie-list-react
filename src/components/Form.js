@@ -32,8 +32,8 @@ const Form = () => {
         setMovie("");
     }
 
-    const handleDelete = (movieName) => {
-        const items = list.filter(item => item.name !== movieName && item.name !== null);
+    const handleDelete = (id) => {
+        const items = list.filter(item => item.id !== id && item.id !== null);
         setList(items);
     };
 
@@ -49,10 +49,8 @@ const Form = () => {
                     list={list}
                     onDelete={handleDelete}
                 />
-            
         </main>
-        )
+        );
     }
-
 
 export default Form;
